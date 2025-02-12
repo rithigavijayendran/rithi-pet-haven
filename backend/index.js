@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin:"https://pet-adoption-rithi.netlify.app"}));
 
 // Routes
 app.use('/api/auth', authRoutes);
