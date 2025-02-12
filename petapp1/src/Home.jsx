@@ -23,7 +23,7 @@ function PetAdoptionWebsite() {
                     <div className="relative z-10 text-center text-white">
                         <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to Pet Adoption Website</h1>
                         <p className="text-lg md:text-xl mb-8">Find Your Perfect Companion</p>
-                        <a href="/register" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out">Start Browsing</a>
+                        <a href="/login" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out">Start Browsing</a>
                     </div>
                     <div className="absolute inset-0 bg-black opacity-50"></div>
                 </section>
@@ -38,28 +38,28 @@ function PetAdoptionWebsite() {
                     <div className="container mx-auto">
                         <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Featured Pets</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                            <div className="bg-blue-50 ml-[2rem] shadow-lg rounded-lg overflow-hidden">
                                 <img src="https://tse3.mm.bing.net/th?id=OIP.aqF33gxnIodSAMxUhOeGOQHaE8&pid=Api&P=0&h=180" alt="Pet 1" className="w-full h-64 object-cover"/>
                                 <div className="p-6">
                                     <h3 className="text-2xl font-bold mb-2">Bella</h3>
                                     <p className="text-gray-700 mb-4">Bella is a friendly and playful 2-year-old Labrador Retriever looking for a loving home.</p>
-                                    <a href="#" className="text-blue-500 hover:text-blue-700 font-bold">Learn More</a>
+                                    <a href="/login" className="text-blue-500 hover:text-blue-700 font-bold">Learn More</a>
                                 </div>
                             </div>
-                            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                            <div className="bg-blue-50 shadow-lg rounded-lg overflow-hidden">
                                 <img src="https://tse2.mm.bing.net/th?id=OIP.hAa7ejL1IprpOHRxbv5aawAAAA&pid=Api&P=0&h=180" alt="Pet 2" className="w-full h-64 object-cover"/>
                                 <div className="p-6">
                                     <h3 className="text-2xl font-bold mb-2">Max</h3>
                                     <p className="text-gray-700 mb-4">Max is a gentle and affectionate 3-year-old Maine Coon who loves to cuddle.</p>
-                                    <a href="#" className="text-blue-500 hover:text-blue-700 font-bold">Learn More</a>
+                                    <a href="/login" className="text-blue-500 hover:text-blue-700 font-bold">Learn More</a>
                                 </div>
                             </div>
-                            <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+                            <div className="bg-blue-50 mr-[2rem] shadow-lg rounded-lg overflow-hidden">
                                 <img src="https://tse4.mm.bing.net/th?id=OIP.7bRkbOk4krdz3s65wDi1LQHaFj&pid=Api&P=0&h=180" alt="Pet 3" className="w-full h-64 object-cover"/>
                                 <div className="p-6">
                                     <h3 className="text-2xl font-bold mb-2">Luna</h3>
                                     <p className="text-gray-700 mb-4">Luna is a playful and curious 1-year-old Tabby looking for a forever home.</p>
-                                    <a href="#" className="text-blue-500 hover:text-blue-700 font-bold">Learn More</a>
+                                    <a href="/login" className="text-blue-500 hover:text-blue-700 font-bold">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ function PetAdoptionWebsite() {
                     <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Contact Us</h2>
                     <div className="text-lg text-center">
                         <p>We'd love to hear from you! Whether you have questions, want to get involved, or are interested in adopting, feel free to reach out.</p>
-                        <p>Email: rithi@petadoptionwebsite.com | Phone: +91 8015332065</p>
+                        <p>Email: rithi@petadoption.com | Phone: +91 8015332065</p>
                     </div>
                 </section>
             </body>

@@ -1,107 +1,28 @@
-const express=require('express')
-const mongoose=require('mongoose') 
-const cors=require('cors')
-const { RegisterModel,LoginModel,AdoptModel} = require('./models/schema');
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import authRoutes from './routes/authRoutes.js';
+import adoptionRoutes from './routes/adoptionRoutes.js';// Add `.js` extension
 
+dotenv.config();
 
-const app = express()
-app.use(express.json())
-app.use(cors())
-async function connectdb(){
-  try{
-await mongoose.connect("mongodb+srv://Rithiga:Rithi14@cluster0.rkk0jjb.mongodb.net/pet?retryWrites=true&w=majority&appName=Cluster0");
-console.log("db connnection success")
-         const x= 4000;
-         app.listen(x,function(){
-             console.log(`starting port ${x}...`)
-         })
-     }
-     catch(err){
-        console.log("db not connected: "+err);
-    }
-}
-connectdb();
+const app = express();
 
+// Middleware
+app.use(express.json());
+app.use(cors());
 
-app.post('/addbeaches', async (req, res) => {
-  try {
-      const { image, name, description, price } = req.body;
-      
-      const beach = new BeachModel({
-          image,
-          name,
-          description,
-          price
-      });
-      await beach.save();
-      res.status(201).json({ message: "Beaches added successfully" });
-  } catch (error) {
-      res.status(500).json({ message: error.message });
-  }
-});
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api', adoptionRoutes);
 
-app.get('/getallbeaches', async (req, res) => {
-    try {
-      const beaches = await BeachModel.find();
-      res.json(beaches);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  });
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log("MongoDB connected"))
+    .catch(err => console.error("MongoDB connection error:", err));
 
-  app.post('/addregisters', async (req, res) => {
-    try {
-        const { username, email, password, phone, address, city, state, country } = req.body;
-        
-        const beach = new RegisterModel({
-            username,
-            email,
-            password,
-            phone,
-            address,
-            city,
-            state,
-            country
-        });
-        await beach.save();
-        res.status(201).json({ message: "Registerd successfully" });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-  });
-
-  app.post('/addlogins', async (req, res) => {
-    try {
-        const { username, password } = req.body;
-        
-        const beach = new LoginModel({
-            username,
-            password,
-        });
-        await beach.save();
-        res.status(201).json({ message: "Login successfully" });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-  });
-
-  app.post('/addadopts', async (req, res) => {
-    try {
-        const { name, phone, address, state, city } = req.body;
-        
-        const bea = new AdoptModel({
-          name,
-          phone,
-          address,
-          state,
-          city,
-        });
-        await bea.save();
-        res.status(201).json({ message: "Adopted successfully Delieved Within three days to your address" });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-  });
- 
- 
- 
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

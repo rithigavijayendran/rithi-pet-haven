@@ -25,6 +25,7 @@ const petCardStyle = {
   border: '1px solid #ccc',
   borderRadius: '10px',
   maxWidth: '300px',
+  backgroundColor:'#F0F9FF',
 };
 
 const petImageStyle = {
@@ -37,14 +38,6 @@ const petInfoStyle = {
   marginTop: '10px',
 };
 
-const buyNowButtonStyle = {
-  backgroundColor: '#4CAF50',
-  color: 'white',
-  padding: '10px 20px',
-  border: 'none',
-  borderRadius: '5px',
-  cursor: 'pointer',
-};
 
 const Pets = () => {
   const pets = [
@@ -62,14 +55,14 @@ const Pets = () => {
     { species: 'Bette', age: 4, price: 4000,Lifespan: "30-80 years", image: fi12 },
   ];
 
-  const handleBuyNow = (pet) => {
-    // Add your logic for handling the "Buy Now" action
-    console.log(`Buying now: ${pet.species}`);
-  };
-
   return (
-    <div>
-      <center><h2 className='font-bold text-3xl'>Pawsitively Home</h2></center>
+    <div className='bg-gray-400 p-2'>
+      <button 
+        onClick={() => window.location.href = '/explore'} 
+        className='bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded'>
+        ← Go Back
+      </button>
+      <center><h2 className='font-bold text-3xl'>Adopt a Friend, Change a Life❤️</h2></center>
       <div style={petContainerStyle}>
         {pets.map((pet, index) => (
           <div key={index} style={petCardStyle}>
@@ -77,8 +70,8 @@ const Pets = () => {
             <div style={petInfoStyle}>
               <p>Species: {pet.species}</p>
               <p>Age: {pet.age}</p>
-              <p>Price: {pet.price} INR</p>
-              <a href="/adopt" className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded inline-block">Adopt Now</a>
+              <p>Price: ₹{pet.price}</p>
+              <a href="/adopt" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-block">Adopt Now</a>
             </div>
           </div>
         ))}
