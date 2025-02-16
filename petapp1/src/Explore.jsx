@@ -10,7 +10,7 @@ function PetCategoriesPage() {
                 <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
             </video>
-            <div className="bg-cover bg-center bg-fixed min-h-screen relative z-10">
+            <div className="bg-gray-400 bg-cover bg-center bg-fixed min-h-screen relative z-10">
                 <div className="container  py-20">
                     <h1 className="text-4xl text-black font-extrabold mb-10 text-center">Adopt a Pet</h1>
                     <div className="flex flex-wrap justify-center -mx-4">

@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Mail, Lock } from 'lucide-react';
 
-
 export default function LoginForm() {
   const [login, setLogin] = useState({ email: '', password: '' });
   const [error, setError] = useState({});
@@ -31,7 +30,7 @@ export default function LoginForm() {
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:4000/api/auth/login', login);
+      const response = await axios.post('https://rithi-pet-haven-backend.onrender.com/api/auth/login', login);
       setLoading(false);
 
       if (response.data.success) {
@@ -48,12 +47,14 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="relative flex justify-center items-center min-h-screen bg-cover bg-center" 
+    <div className="relative flex justify-center items-center min-h-screen bg-cover bg-center overflow-auto px-4 sm:px-6 md:px-8" 
       style={{ backgroundImage: "url('https://media-hosting.imagekit.io//d5ed2ec9cf354241/login.jpg?Expires=1833943009&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=cwieD-98muK6DnOMVpLNpDg8q7TAR4~tdORT-JVoreOoNOXCvx~Br-iSbJrT2e7hur-nPIxmDGSfyyIYq7dJeLNDvGLaeGuhPGo3oHGrr0eTptrGj74VBykwpFR~NmlA6B3~ZLIxVBbXwYkr-mEPcLELTzDEK7fh2IaaS1qnoQpLRfKtgn5ehbXQZZ4AaU~SEvbnVd2wiBdZlzAvUcY3s6qfg1VUpkQacnZz7XAl-xj35BJj6TeCEJe-bdB~MvSGa9sicynLkEHvSjv4CYQASW1oYnSmYsInJ0ZIQtcmoT-xFJbHbio8S9QDJJhnAKdoE~HrtwbdhL6GOrwu4NTsuQ__')" }}>
       
       <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative bg-gray-300 bg-opacity-90 backdrop-blur-md rounded-lg shadow-lg p-8 max-w-md w-full">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">Login</h2>
+
+      {/* Form Container */}
+      <div className="relative bg-gray-300 bg-opacity-90 backdrop-blur-md rounded-lg shadow-lg p-6 sm:p-8 md:p-10 w-full max-w-sm sm:max-w-md md:max-w-lg">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-4 sm:mb-6">Login</h2>
 
         <form onSubmit={handleSubmit}>
           {/* Email Field */}
@@ -65,7 +66,7 @@ export default function LoginForm() {
               value={login.email} 
               onChange={handleChange} 
               placeholder="Email"
-              className="pl-10 p-2 border rounded w-full focus:ring focus:ring-blue-900 outline" 
+              className="pl-10 p-2 border rounded w-full focus:ring focus:ring-blue-900 transition duration-300"
             />
             {error.email && <p className="text-red-500 text-sm">{error.email}</p>}
           </div>
@@ -79,7 +80,7 @@ export default function LoginForm() {
               value={login.password} 
               onChange={handleChange} 
               placeholder="Password"
-              className="pl-10 p-2 border rounded w-full focus:ring focus:ring-blue-900 outline" 
+              className="pl-10 p-2 border rounded w-full focus:ring focus:ring-blue-900 transition duration-300"
             />
             <button 
               type="button" 
@@ -95,7 +96,7 @@ export default function LoginForm() {
             <button 
               type="submit" 
               disabled={loading}
-              className="bg-blue-500 text-white px-6 py-2 rounded shadow hover:bg-blue-700 transition duration-300">
+              className="bg-blue-500 text-white px-6 py-2 rounded shadow hover:bg-blue-700 w-full transition duration-300 text-lg">
               {loading ? "Logging in..." : "Login"}
             </button>
           </div>
@@ -105,7 +106,7 @@ export default function LoginForm() {
           {message && <p className="text-green-500 text-center mt-4">{message}</p>}
 
           {/* Register Link */}
-          <p className="mt-4 text-center text-black">
+          <p className="mt-4 text-center text-black text-sm sm:text-base">
             Don't have an account? <a href="/register" className="text-blue-500 hover:underline">Register</a>
           </p>
         </form>

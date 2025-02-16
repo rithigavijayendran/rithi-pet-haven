@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "https://67b221b9db6e1fbc8f846dc0--incandescent-dragon-98cda7.netlify.app", credentials: true }));
 
 
 // Routes
