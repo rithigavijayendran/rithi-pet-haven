@@ -24,7 +24,7 @@ Welcome to the **Dynamic Pet Adoption Platform**, a seamless and interactive web
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Authentication:** Google OAuth, JWT (JSON Web Tokens)
-- **Hosting:** Vercel / Netlify
+- **Hosting:** Render & Netlify
 
 ---
 
@@ -33,8 +33,8 @@ Follow these steps to set up the project locally:
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/pet-adoption.git
-cd pet-adoption
+git clone https://github.com/rithigavijayendran/rithi-pet-haven.git
+cd rithi-pet-haven
 ```
 
 ### 2️⃣ Install Dependencies
